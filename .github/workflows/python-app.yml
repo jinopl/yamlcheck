@@ -38,9 +38,10 @@ jobs:
     
     - name: Push output file to github
       run: |
+        ls -l
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git add ./tools/outputfile.txt
+        git add tools/outputfile.txt
         git commit -m "Adding outputfile by github actions"
         git push
 
