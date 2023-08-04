@@ -2,11 +2,13 @@ name: find-my-yaml
 
 on:
   push:
-    branches: [ "main" ]
-  paths-ignore: 
-    - 'output/**'
+    branches:
+      - main
+    paths-ignore: 
+      - 'output/**'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 permissions:
   contents: read
