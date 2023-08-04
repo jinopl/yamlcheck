@@ -33,11 +33,15 @@ jobs:
       run: pip install argparse datetime
 
     - name: Run yaml finder
-      run: python3 yamlfinder.py --ifile ../filenames.txt 
+      run: python3 yamlfinder.py --ifile ../filenames.txt --ofile outputfile.txt
       working-directory: ./tools/
     
     - name: list 
       run: ls -l
+      working-directory: ./tools/
+
+    - name: list 
+      run: cat outputfile.txt
       working-directory: ./tools/
 
         
