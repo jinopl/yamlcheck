@@ -3,3 +3,4 @@ now.txt
 nice.yml
 tools.sh
 doc-tools.sh
+super.yaml
