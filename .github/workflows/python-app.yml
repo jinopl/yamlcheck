@@ -32,11 +32,12 @@ jobs:
     - name: Install dependencies
       run: pip install argparse datetime
 
-    - name: list 
-      run: | 
-        ls -l 
+    - name: Run yaml finder
+      run: python3 yamlfinder.py --ifile ../filenames.txt 
       working-directory: ./tools/
     
-    - name: list main
-      run: | 
-        ls -l 
+    - name: list 
+      run: ls -l
+      working-directory: ./tools/
+
+        
