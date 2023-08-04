@@ -33,15 +33,21 @@ jobs:
       run: pip install argparse datetime
 
     - name: Run yaml finder
-      run: python3 yamlfinder.py --ifile ../filenames.txt --ofile outputfile.txt
+      run: | 
+        python3 yamlfinder.py --ifile ../filenames.txt --ofile outputfile.txt
+        mv tools/outputfile.txt output/
       working-directory: ./tools/
+
+    - name: Remove tool folders
+      run: rm -rf tools
     
     - name: Push output file to github
       run: |
         ls -l
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git add tools/outputfile.txt
+        git status
+        git add .
         git commit -m "Adding outputfile by github actions"
         git push
 
