@@ -35,7 +35,7 @@ jobs:
     - name: Run yaml finder
       run: | 
         python3 yamlfinder.py --ifile ../filenames.txt --ofile outputfile.txt
-        mv tools/outputfile.txt output/
+        mv outputfile.txt output/
       working-directory: ./tools/
 
     - name: Remove tool folders
