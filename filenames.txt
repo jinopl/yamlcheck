@@ -4,3 +4,4 @@ nice.yml
 tools.sh
 doc-tools.sh
 super.yaml
+hulk.yaml
