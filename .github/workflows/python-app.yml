@@ -1,0 +1,42 @@
+name: find-my-yaml
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: check out main repo
+      uses: actions/checkout@v3
+      
+    - name: Checkout yamlfinder
+      uses: actions/checkout@v3
+      with:
+        repository: jinopl/yamlfinder
+        path: tools
+        
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: Install dependencies
+      run: pip install argparse datetime
+
+    - name: list 
+      run: | 
+        ls -l 
+      working-directory: ./tools/
+    
+    - name: list main
+      run: | 
+        ls -l 
