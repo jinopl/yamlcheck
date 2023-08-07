@@ -41,25 +41,24 @@ jobs:
 
     - name: Run yaml finder
       run: | 
-        python3 yamlfinder.py --ifile ../filenames.txt --ofile outputfile.txt
-        mv outputfile.txt ../output/
+        python3 yamlfinder.py
       working-directory: ./tools/
 
     - name: Remove tool folders
       run: rm -rf tools
 
-    - name: Check if there are any changes
-      id: verify_diff
-      run: |
-        git diff --quiet . || echo "changed=true" >> $GITHUB_OUTPUT
+    # - name: Check if there are any changes
+    #   id: verify_diff
+    #   run: |
+    #     git diff --quiet . || echo "changed=true" >> $GITHUB_OUTPUT
 
-    - name: Commit and push if there is changes
-      if: steps.verify_diff.outputs.changed == 'true'
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions"
-        git status
-        git add .
-        git commit -m "Adding outputfile by github actions"
-        git push
+    # - name: Commit and push if there is changes
+    #   if: steps.verify_diff.outputs.changed == 'true'
+    #   run: |
+    #     git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    #     git config --local user.name "github-actions"
+    #     git status
+    #     git add .
+    #     git commit -m "Adding outputfile by github actions"
+    #     git push
     
