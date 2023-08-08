@@ -42,17 +42,17 @@ jobs:
     - name: Run yaml finder
       run: | 
         python3 yamlfinder.py --ifile ../filenames.txt --ofile outputfile.txt
-        mv outputfile.txt ../output/
+        mv outputfile.txt ../
       working-directory: ./tools/
 
     - name: Remove tool folders
       run: rm -rf tools
 
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v3
-      with:
-        name: my-output
-        path: output/outputfile.txt
+    # - name: Archive code coverage results
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: my-output
+    #     path: ./outputfile.txt
 
     - name: Download a single artifact
       uses: actions/download-artifact@v3
@@ -61,3 +61,6 @@ jobs:
 
     - name: Display the file
       run: ls -la
+    
+    - name: Display the file
+      run: cat ./outputfile.txt
